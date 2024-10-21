@@ -1,10 +1,11 @@
 # Project-1
 **CI/CD PIPELINE PROJECT DEPLOYMENT USING TOMCAT**
 
-** Project Overview:
+**Project Overview:**
 In this project, I designed and implemented a Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Spring Boot application using various tools, including Jenkins, Git, Maven, SonarQube, Nexus, and Tomcat. The primary goal was to automate the software development lifecycle, enhance code quality, and streamline the deployment process.
 
-** Tools and Technologies used:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Tools and Technologies used:**
 
 -Git: For version control and managing source code.
 
@@ -20,7 +21,8 @@ In this project, I designed and implemented a Continuous Integration and Continu
 
 -Tomcat: A webserver for deploying the application.
 
-** PROJECT WORKFLOW WITH INSTALLATION STEPS:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**PROJECT WORKFLOW WITH INSTALLATION STEPS:**
 AWS Console Setup: 
 1. Launch EC2 Instances in AWS
 creating 4 Instances: Jenkins, SonarQube, Nexus, and Tomcat, each on a separate Amazon Linux 2 EC2 instance
@@ -38,7 +40,8 @@ Launch the Instance: Once all settings are configured, click Launch Instance.
 View Instances:
 After launching, navigate to the EC2 Dashboard > Instances to view your running instances. Wait until their status shows running.
 
-NOTE:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**NOTE:**
 
 Jenkins: Port 8080: For web access to Jenkins.
 
@@ -48,14 +51,14 @@ Nexus: Port 8081: For web access to Nexus.
 
 Tomcat: Port 8080: For accessing Tomcat.
 
-
-2. Connecting to EC2 Instances Using Git Bash:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------**Connecting to EC2 Instances Using Git Bash:**
    
 Once your instances are running, you can connect to them using Git Bash with the SSH key pair that you downloaded.
 
 now ready to install and configure the necessary CI/CD tools on each instance.
 
-3.Tool Installation on Each Instance
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Tool Installation on Each Instance**
 
 1.Jenkins Instance: Installing Java, Git, Maven, Jenkins, and Docker
 
@@ -150,6 +153,7 @@ service sonar start
 
 SonarQube runs on port 9000. Open your browser and copy sonarqube-public-ip:9000.
 
+
 3. Nexus Instance:
    
 Connect to Nexus Instance via SSH
@@ -215,6 +219,7 @@ sudo service nexus start
 
 Nexus runs on port 8081. Open your browser and copy nexus-public-ip:8081.
 
+
 4.Tomcat Instance: Installing Java and Tomcat:
 
 Connect to Tomcat Instance via SSH
@@ -242,7 +247,8 @@ Start Tomcat:
 Access Tomcat:
 Tomcat runs on port 8080. Open your browser and copy tomcat-public-ip:8080.
 
-** CI/CD Pipeline Implementation
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**CI/CD Pipeline Implementation**
 
 After the tools were installed, I created a Jenkins pipeline to automate the entire workflow. Here’s how the pipeline operates:
 
@@ -256,10 +262,16 @@ Artifact Management: Once the build is successful and the code quality is valida
 
 Deployment Stage: Finally, Jenkins deploys the artifact from Nexus to the Tomcat server. I configured Tomcat's manager to allow Jenkins to perform deployments automatically, reducing the manual effort and potential for errors.
 
-**Benifits of CI/CD pipeline project:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Benifits of CI/CD pipeline project**:
 Speed: Faster development cycles.
+
 Quality: Higher code quality.
+
 Consistency: Reliable deployments.
+
 Efficiency: Streamlined processes.
+
 Feedback: Immediate code analysis.
+
 Automation: Reduced manual effort.
