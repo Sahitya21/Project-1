@@ -49,7 +49,8 @@ Nexus: Port 8081: For web access to Nexus.
 Tomcat: Port 8080: For accessing Tomcat.
 
 
-2. Connecting to EC2 Instances Using Git Bash
+2. Connecting to EC2 Instances Using Git Bash:
+   
 Once your instances are running, you can connect to them using Git Bash with the SSH key pair that you downloaded.
 
 now ready to install and configure the necessary CI/CD tools on each instance.
@@ -72,10 +73,11 @@ now ready to install and configure the necessary CI/CD tools on each instance.
 
 --Verify Git installation:
 >>git --version
-check the version of Git installed.
 
 ->Install Maven
+
 Maven is required to build Java projects.
+
 >>sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
   sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
   sudo yum install -y apache-maven
@@ -86,33 +88,42 @@ Maven is required to build Java projects.
 ->Install Jenkins
 sudo wget -O /etc/yum.repos.d/jenkins.repo \https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-Install Jenkins:
+
+--Install Jenkins:
 sudo yum install jenkins -y
-Start Jenkins:
+
+--Start Jenkins:
 sudo systemctl start jenkins
-Enable Jenkins to start on boot:
+
+--Enable Jenkins to start on boot:
 sudo systemctl enable jenkins
-Check Jenkins status:
+
+--Check Jenkins status:
 sudo systemctl status jenkins
 
 Access Jenkins:
 Jenkins runs on port 8080 by default.
+
 To access Jenkins, open your browser and copy jenkins-public-ip:8080.
 
-Unlock Jenkins:
+--Unlock Jenkins:
 You’ll need the initial admin password to unlock Jenkins.
-Retrieve the password using this command:
+
+--Retrieve the password using this command:
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
 Copy this password, paste it into the Jenkins web UI, and follow the setup instructions.
 
 ->Install Docker
 Docker is used to create and manage containers in the CI/CD pipeline.
 
-Install Docker:
+--Install Docker:
 >>sudo yum install docker -y
-Start Docker service:
+
+--Start Docker service:
 >>sudo systemctl start docker
-Enable Docker to start on boot:
+
+--Enable Docker to start on boot:
 >>sudo systemctl enable docker
 
 Verify Docker installation:
@@ -120,75 +131,114 @@ Verify Docker installation:
 
 
 2. SonarQube Instance: Installing Java, PostgreSQL, and SonarQube
+   
 Connect to SonarQube Instance via SSH
+
 Use Git Bash to connect to your SonarQube EC2 instance:
+
 -> Install Java (OpenJDK 11)
 sudo amazon-linux-extras install java-openjdk11 -y
-Verify Java installation:
+
+--Verify Java installation:
 java -version
 
 -> Install SonarQube:
 sudo wget -O /etc/yum.repos.d/sonar.repo http://downloads.sourceforge.net/project/sonar-pkg/rpm/sonar.repo
 sudo yum install sonar -y
+
 service sonar start
 
 SonarQube runs on port 9000. Open your browser and copy sonarqube-public-ip:9000.
 
-3. Nexus Instance: 
+3. Nexus Instance:
+   
 Connect to Nexus Instance via SSH
+
 Use Git Bash to connect to your Nexus EC2 instance:
-Install Java (OpenJDK 11)
-Nexus requires Java to run.
-->Install Java:
+
+->Install Java (OpenJDK 11):
 sudo amazon-linux-extras install java-openjdk11 -y
-Verify Java installation:
+
+--Verify Java installation:
 java -version
+
 3. Install Nexus Repository Manager
 cd /opt/
+
 ls
+
 sudo wget https://download.sonatype.com/nexus/3/latest-unix.tar.gzsudo wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
 
 tar -xvf latest-unix.tar.gz
+
 ls
+
 mv nexus-3.34.0-01 nexus3
+
 chown -R ec2-user:ec2-user nexus3 sonatype-work
+
 cd nexus3/
+
 cd bin
+
 vi nexus.rc
+
 ln -s /opt/nexus3/bin/nexus /etc/init.d/nexus
+
 cd /etc/init.d/
+
 chkconfig --add nexus
+
 chkconfig nexus on
+
 sudo service nexus start
+
 cat /opt/sonatype-work/nexus3/admin.password
+
 cd /opt/
+
 cd nexus3/
+
 cd bin
+
 ls
+
 cd ..
+
 cd etc/
+
 vi nexus-default.properties
+
 sudo service nexus stop
+
 sudo service nexus start
 
 Nexus runs on port 8081. Open your browser and copy nexus-public-ip:8081.
 
-4.Tomcat Instance: Installing Java and Tomcat
+4.Tomcat Instance: Installing Java and Tomcat:
+
 Connect to Tomcat Instance via SSH
+
 Use Git Bash to connect to your Tomcat EC2 instance:
 
---Install Java (OpenJDK 11)
+->Install Java (OpenJDK 11)
 sudo amazon-linux-extras install java-openjdk11 -y
+
 --Verify Java installation:
 java -version
---Install Apache Tomcat
+
+->Install Apache Tomcat
 wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.73/bin/apache-tomcat-9.0.73.tar.gz
+
 --Extract Tomcat:
 tar -xvf apache-tomcat-9.0.73.tar.gz
+
 --Move Tomcat to /opt:
 sudo mv apache-tomcat-9.0.73 /opt/tomcat
+
 Start Tomcat:
 /opt/tomcat/bin/startup.sh
+
 Access Tomcat:
 Tomcat runs on port 8080. Open your browser and copy tomcat-public-ip:8080.
 
