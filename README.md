@@ -51,7 +51,9 @@ Nexus: Port 8081: For web access to Nexus.
 
 Tomcat: Port 8080: For accessing Tomcat.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------**Connecting to EC2 Instances Using Git Bash:**
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+**Connecting to EC2 Instances Using Git Bash**
    
 Once your instances are running, you can connect to them using Git Bash with the SSH key pair that you downloaded.
 
