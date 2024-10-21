@@ -24,10 +24,15 @@ In this project, I designed and implemented a Continuous Integration and Continu
 AWS Console Setup: 
 1. Launch EC2 Instances in AWS
 creating 4 Instances: Jenkins, SonarQube, Nexus, and Tomcat, each on a separate Amazon Linux 2 EC2 instance
+
 Instance Type: Choose t2.medium(provides 2 vCPUs and 4 GB RAM) or t2.large 
+
 keypair: create a new keypair or use an existing one.
+
 Security Groups: Configured for SSH access and All Traffic for each instance.
+
 SSH Connections: Made using Git Bash and the provided .pem key pair.
+
 Launch the Instance: Once all settings are configured, click Launch Instance.
 
 View Instances:
@@ -47,16 +52,12 @@ Tomcat: Port 8080: For accessing Tomcat.
 2. Connecting to EC2 Instances Using Git Bash
 Once your instances are running, you can connect to them using Git Bash with the SSH key pair that you downloaded.
 
-Open Git Bash:On your local machine
-Navigate to the Directory with the Key Pair:
-Use the following SSH command to connect to each instance 
-connect to your EC2 instance using Git Bash:
 now ready to install and configure the necessary CI/CD tools on each instance.
 
-
-
 3.Tool Installation on Each Instance
+
 1.Jenkins Instance: Installing Java, Git, Maven, Jenkins, and Docker
+
 --Update the package list:
 >>sudo yum update -y
 
@@ -68,6 +69,7 @@ now ready to install and configure the necessary CI/CD tools on each instance.
 
 -> Install Git
 >>sudo yum install git -y
+
 --Verify Git installation:
 >>git --version
 check the version of Git installed.
