@@ -4,7 +4,7 @@
 **Project Overview:**
 In this project, I designed and implemented a Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Spring Boot application using various tools, including Jenkins, Git, Maven, SonarQube, Nexus, and Tomcat. The primary goal was to automate the software development lifecycle, enhance code quality, and streamline the deployment process.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Tools and Technologies used:**
 
 -Git: For version control and managing source code.
@@ -21,7 +21,7 @@ In this project, I designed and implemented a Continuous Integration and Continu
 
 -Tomcat: A webserver for deploying the application.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **PROJECT WORKFLOW WITH INSTALLATION STEPS:**
 AWS Console Setup: 
 1. Launch EC2 Instances in AWS
