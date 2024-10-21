@@ -4,13 +4,20 @@
 ** Project Overview:
 In this project, I designed and implemented a Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Spring Boot application using various tools, including Jenkins, Git, Maven, SonarQube, Nexus, and Tomcat. The primary goal was to automate the software development lifecycle, enhance code quality, and streamline the deployment process.
 
-** Tools and Technologies used
+** Tools and Technologies used:
+
 -Git: For version control and managing source code.
+
 -Maven : To Automate the build process and manage project dependencies.
+
 -Jenkins: A CI/CD server that automates the building, testing and deployment process.
+
 -SonarQube: For static code analysis to ensure code quality and maintainabiliity.
+
 -Nexus: An artifact repository used for storing build artifacts and dependencies.
--Docker: For containerizing the application
+
+-Docker: For containerizing the application.
+
 -Tomcat: A webserver for deploying the application.
 
 ** PROJECT WORKFLOW WITH INSTALLATION STEPS:
